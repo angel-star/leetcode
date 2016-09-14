@@ -1,0 +1,78 @@
+'''
+
+
+Given an array of integers, every element appears twice except for one. Find that single one.
+
+Note:
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+
+
+'''
+
+def singleNumber(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+
+    这个写法是不对的   第二次出现的重复数组就会直接返回  漏洞很大
+    """
+    for x in xrange(len(nums)):
+        if nums.index(nums[x],x) :
+            pass
+        else:
+            return nums[x]
+            
+            
+            
+--------------
+leetcode上有特别巧妙的方法   ：
+
+known that A XOR A = 0 and the XOR operator is commutative, the solution will be very straightforward.
+
+int singleNumber(int A[], int n) {
+    int result = 0;
+    for (int i = 0; i<n; i++)
+    {
+		result ^=A[i];
+    }
+	return result;
+}
+
+python 上可以这样做 
+
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        result = 0
+        for x in nums:
+            result = result ^ x
+        return result
+            
+            
+另外见到了一个 python的答案   很巧妙 
+
+def singleNumber1(self, nums):
+    dic = {}
+    for num in nums:
+        dic[num] = dic.get(num, 0)+1
+    for key, val in dic.items():
+        if val == 1:
+            return key
+
+def singleNumber2(self, nums):
+    res = 0
+    for num in nums:
+        res ^= num
+    return res
+    
+def singleNumber3(self, nums):
+    return 2*sum(set(nums))-sum(nums)
+    
+def singleNumber4(self, nums):
+    return reduce(lambda x, y: x ^ y, nums)
+    
+def singleNumber(self, nums):
+    return reduce(operator.xor, nums)
