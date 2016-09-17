@@ -1,0 +1,13 @@
+Given a binary tree, find its maximum depth.
+
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+Subscribe to see which companies asked this question
+
+Show Tags
+Show Similar Problems
+
+return 1 + max(map(self.maxDepth, (root.left, root.right))) if root else 0
+
+
+Python最佳答案如上   自己的做法目前没想出来  有时间再补。
