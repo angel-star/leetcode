@@ -35,4 +35,226 @@ Hint
 编程题可以使用本地编译器，此页面不记录跳出次数
 
 
+2016年9月29日22:07:07  群里一位大神给出的答案如下
+#-*-coding:utf-8-*-
+from  collections import Counter
+import sys
+
+
+#dict0 = {'e':['nine'],'n':['nine'],'t':['two'],'v':[ 'seven']}
+#dict1 = {'g':['eight'],'u':['four'], 'w':['two'],'x':['six'],'z':['zero']}
+#dict3 = {'f':['five'],'h':['three'], 'o':['one'],'s':['seven'],'r':['three']}
+
+#dict3 = {'e':[one,zero,three,five,seven,eight,nine],
+#		'g':[eight],
+#		'f':[four,five],
+#		'i':[five,six,eight,nine],
+#		'h':[three,eight],
+##		'n':[one,seven,nine],
+#		's':[six,seven],
+#		'r':[three,zero],
+#		'u':[four],
+#		't':[two,three,eight],
+#		'w':[two],
+#		'v':[five,seven],
+#		'x':[six],
+#		'z':[zero]}
+
+#dct3 = {'e':[nine],
+#	
+#		'i':[nine],
+#		
+#		
+#		'n':[nine],
+#		
+#		
+#		}
+
+a = ['g', 'u', 'w', 'x', 'z']
+b1 = ['f', 'h', 'o', 's', ]
+c = ['e']
+
+class my(object):
+	def __init__(self):
+		self.c = Counter()
+		self.list = []
+		self.list1 = []
+		self.words = {'zero':0,'one':1,'two':2,'three':3,'four':4,'five':5,'six':6,'seven':7,'eight':8,'nine':9}
+
+	def output(self, mystring):
+		for x in mystring:
+			self.c[x] += 1
+
+		self.keys = self.c.keys()
+		#print 'self.c',self.c
+		
+		for y in a:
+			if y in self.keys:
+				if y == 'g':
+					b = range(self.c['g'])
+					for z in b:
+						self.list.append('eight')
+						self.c1 = Counter('eight')
+						
+						self.c = self.c - self.c1
+						
+					else:
+						if not self.c:
+							return self.list
+							sys.exit(1)
+						else:
+							pass
+					
+				elif y == 'u':
+					b = range(self.c['u'])
+					for z in b:
+						self.list.append('four')
+						self.c1 = Counter('four')
+						self.c = self.c - self.c1
+					else:
+						if not self.c:
+							return self.list
+							sys.exit(1)
+						else:
+							pass
+				elif y == 'w':
+					b = range(self.c['w'])
+					for z in b:
+						self.list.append('two')
+						self.c1 = Counter('two')
+						self.c = self.c - self.c1
+						
+					else:
+						if not self.c:
+							return self.list
+							sys.exit(1)
+						else:
+							pass
+
+				elif y == 'x':
+
+					b = range(self.c['x'])
+					for z in b:
+						self.list.append('six')
+						self.c1 = Counter('six')
+						self.c = self.c - self.c1
+					else:
+						if not self.c:
+							return self.list
+							sys.exit(1)
+						else:
+							pass
+				else:
+					b = range(self.c['z'])
+					for z in b:
+						self.list.append('zero')
+						self.c1 = Counter('zero')
+						self.c = self.c - self.c1
+					else:
+						if not self.c:
+							return self.list
+							sys.exit(1)
+						else:
+							pass
+
+		
+		#print 'self.c',self.c
+		self.keys = self.c.keys()
+		for y in b1:
+			if y in self.keys:
+				if y == 'f':
+					b2 = range(self.c['f'])
+					for z in b2:
+						self.list.append('five')
+						self.c1 = Counter('five')
+						self.c = self.c - self.c1
+					else:
+						if not self.c:
+							return self.list
+							sys.exit(1)
+						else:
+							pass
+					
+			
+				elif y == 'o':
+					b2 = range(self.c['o'])
+					for z in b2:
+						self.list.append('one')
+						self.c1 = Counter('one')
+						self.c = self.c - self.c1
+					else:
+						if not self.c:
+							return self.list
+							sys.exit(1)
+						else:
+							pass
+				elif y == 's':
+
+					b2 = range(self.b['s'])
+					for z in b2:
+						self.list.append('seven')
+						self.c1 = Counter('seven')
+						self.c = self.c - self.c1
+					else:
+						if not self.c:
+							return self.list
+							sys.exit(1)
+						else:
+							pass
+				else:
+					b2 = range(self.c['r'])
+					for z in b2:
+						self.list.append('three')
+						self.c1 = Counter('three')
+						self.c = self.c - self.c1
+					else:
+						if not self.c:
+							return self.list
+							sys.exit(1)
+						else:
+							pass
+
+
+		
+		
+		#print 'self.e',self.c
+		b = range(len(self.c))
+		for z in b:
+			self.list.append('nine')
+			self.c1 = Counter('nine')
+			self.c = self.c - self.c1
+		else:
+			if not self.c:
+				return self.list
+				sys.exit(1)
+			
+
+
+if __name__ == '__main__':
+	x = raw_input('>')
+	list1 = []
+	list2 = []
+	words = {'zero':0,'one':1,'two':2,'three':3,'four':4,'five':5,'six':6,'seven':7,'eight':8,'nine':9}
+	my = my()
+
+	string1 = my.output(x)
+	for x in string1:
+		list1.append(words[x])
+
+	for x in list1:
+		if x >= 8:
+			x = x - 8
+			list2.append(str(x))
+		else:
+			x = x + 10 - 8
+			list2.append(str(x))
+
+	print ''.join(sorted(list2))
+
+	
+
+
+		
+
+
 
