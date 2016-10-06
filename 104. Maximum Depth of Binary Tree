@@ -18,5 +18,41 @@ class Solution(object):
         :rtype: int
         """
         
+
+
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if root==None:
+        	return 0
+        else:
+        	left=self.maxDepth(root.left)
+        	right=self.maxDepth(root.right)
+        	return max(left+1,right+1)
+            
+上面是初级版
+下面是升级版
+
+
         
-。。。。妈的啥是二叉树啊 我先去学学再回来
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        return 0 if not root else max(self.maxDepth(root.left), self.maxDepth(root.right))+1
+        
+        
+问题来了 为什么下面的这个不行
+
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        return 0 if not root else max(root.left, root.right)+1
