@@ -1,0 +1,63 @@
+使用已经学过的知识，实现斐波那契数列输出。
+
+
+
+执行命令时输入数列长度，输出指定长度的斐波那契数列，同时，输出所有数字的平均值。
+
+
+
+比如，执行java cn.chinahadoop.java.Fibonacci 20，输出：
+
+
+
+1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765
+
+Avarage is 885.5
+
+
+package cn.chinahadoop.java;
+
+/**
+ * Chinahadoop Fibonacci Example!
+ *
+ */
+public class Fibonacci {
+	public static void main(String[] args) {
+		int sum = 0, a = 1, b = 1;
+		int n = Integer.parseInt(args[0]);
+
+		if (n < 1) {
+			System.out.println("Please Input a positive integer.");
+		}
+
+		if (n < 2) {
+			System.out.println(1);
+			sum = 1;
+		} else {
+			System.out.print("1 1 ");
+			int itemNum = 2;
+			sum = 2;
+
+			while (itemNum < n) {
+				a += b;
+				System.out.print(a + " ");
+				sum += a;
+				itemNum++;
+				if (itemNum >= n) {
+					break;
+				}
+
+				b += a;
+				System.out.print(b + " ");
+				sum += b;
+				itemNum++;
+				if (itemNum >= n) {
+					break;
+				}
+			}
+			
+			System.out.println();
+			System.out.println("Avarage is " + ((double)sum) / n);
+		}
+	}
+}
